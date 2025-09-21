@@ -53,9 +53,37 @@ public class DaoSeguro {
 		return proximoIdSeguro;
 	}
 
-	public int agregarSeguro() {
-
-		return 0;
+	public int agregarSeguro(Seguro seguro) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}
+		
+		Connection cn = null;
+		String query = "INSERT INTO seguros (descripcion, idTipo, costoContratacion, costoAsegurado) VALUES ('"
+				+ seguro.getDescripcion() + "', "
+			    + seguro.getIdTipo() + ", "
+			    + seguro.getCostoContrato() + ", "
+			    + seguro.getCostoAsegurado() + ")"; 
+		int filas = 0;
+		
+		try {
+			cn = DriverManager.getConnection(host+dbName,user,pass);
+			Statement st = cn.createStatement();
+			filas = st.executeUpdate(query);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return filas;
 	}
 
 	public ArrayList<Seguro> listarSeguros() {
