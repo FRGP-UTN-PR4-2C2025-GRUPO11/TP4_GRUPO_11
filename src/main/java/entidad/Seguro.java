@@ -2,6 +2,7 @@ package entidad;
 
 public class Seguro
 {
+	private int idSeguro;
 	private String descripcion;
 	private int idTipo;
 	private float costoContrato;
@@ -10,6 +11,10 @@ public class Seguro
 	public Seguro()
 	{
 	
+	}
+	
+	public int getIdSeguro() {
+		return idSeguro;
 	}
 	
 	public String getDescripcion() {
@@ -36,10 +41,12 @@ public class Seguro
 	public void setCostoAsegurado(float costoAsegurado) {
 		this.costoAsegurado = costoAsegurado;
 	}
+
 	@Override
 	public String toString() {
-		return "Seguro [descripcion=" + descripcion + ", idTipo=" + idTipo + ", costoContrato=" + costoContrato
-				+ ", costoAsegurado=" + costoAsegurado + "]";
+		return "Seguro [idSeguro=" + idSeguro + ", descripcion=" + descripcion + ", idTipo=" + idTipo
+				+ ", costoContrato=" + costoContrato + ", costoAsegurado=" + costoAsegurado + "]";
 	}
+	
 	
 }
