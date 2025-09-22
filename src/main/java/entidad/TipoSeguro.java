@@ -1,6 +1,7 @@
 package entidad;
 
 public class TipoSeguro {
+	
 	private int id;
 	private String descripcion;
 
@@ -27,6 +28,5 @@ public class TipoSeguro {
 	public String toString() {
 		return "TipoSeguro [id=" + id + ", descripcion=" + descripcion + "]";
 	}
-	
 	
 }
