@@ -29,7 +29,7 @@
 		listTypes = (ArrayList<TipoSeguro>) request.getAttribute("listTipos"); 
 	}
 	%>
-	<form action="" method="">
+	<form action="ServletSeguros" method="get">
 		<div class="formulario_field">
 			<label>Id Seguro:</label> <label><b><%=daoSeguro.proximoIdSeguro()%></b></label>
 		</div>
@@ -60,6 +60,21 @@
 				type="number" name="maxConstoAsegurado" required min="1" />
 		</div>
 		<input type="submit" value="Enviar" name="btnSend" />
+
+		<br><br>
+		<% 
+		int filas = 0;
+		if(request.getAttribute("cantFilas") != null)
+		filas = (int)request.getAttribute("cantFilas"); 
+		%>
+  	    
+		<%
+		if(filas== 1){ 
+		%>
+		Seguro agregado correctamente
+		<%
+		}
+		%>
 	</form>
 </body>
 </html>
