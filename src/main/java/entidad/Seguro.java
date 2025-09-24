@@ -8,10 +8,11 @@ public class Seguro
 	private float costoContrato;
 	private float costoAsegurado;
 	
-	public Seguro()
-	{
 	
-	}
+	// Propiedad no incluida en la base de datos. Sirve para mostrar un campo de la tabla tiposeguro.
+	private String idTipodescripcion;
+
+	public Seguro(){}
 	
 	public int getIdSeguro() {
 		return idSeguro;
@@ -44,6 +45,18 @@ public class Seguro
 	public void setCostoAsegurado(float costoAsegurado) {
 		this.costoAsegurado = costoAsegurado;
 	}
+	
+	// Métodos para el atributo idTipodescripcion
+	
+	public String getIdTipodescripcion() {
+		return idTipodescripcion;
+	}
+
+	public void setIdTipodescripcion(String idTipodescripcion) {
+		this.idTipodescripcion = idTipodescripcion;
+	}
+
+	
 
 	@Override
 	public String toString() {

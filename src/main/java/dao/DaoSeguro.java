@@ -87,23 +87,32 @@ public class DaoSeguro {
 	}
 
 	public ArrayList<Seguro> listarSeguros()
-	{
+	{		
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		ArrayList<Seguro> arraySeguros = new ArrayList<Seguro>();
 		Connection cn;
 		try
 		{
 			cn = DriverManager.getConnection(host+dbName,user,pass);
-			String query = "SELECT * FROM seguros";
+			String query = "SELECT seguros.idSeguro, seguros.descripcion, tiposeguros.descripcion, "
+					+ "seguros.costoContratacion, seguros.costoAsegurado FROM seguros "
+					+ "LEFT JOIN tiposeguros ON seguros.idTipo = tiposeguros.idTipo;";
 			Statement st = cn.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next())
 			{
 				Seguro obj = new Seguro();
-				obj.setId(rs.getInt("idSeguro"));
-				obj.setDescripcion(rs.getString("descripcion"));
-				obj.setIdTipo(rs.getInt("idTipo"));
-				obj.setCostoContrato(rs.getFloat("costoContratacion"));
-				obj.setCostoAsegurado(rs.getFloat("costoAsegurado"));
+				obj.setId(rs.getInt("seguros.idSeguro"));
+				obj.setDescripcion(rs.getString("seguros.descripcion"));
+				obj.setIdTipodescripcion(rs.getString("tiposeguros.descripcion"));
+				obj.setCostoContrato(rs.getFloat("seguros.costoContratacion"));
+				obj.setCostoAsegurado(rs.getFloat("seguros.costoAsegurado"));
 				arraySeguros.add(obj);
 			}
 		}

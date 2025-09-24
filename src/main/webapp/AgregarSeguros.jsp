@@ -14,8 +14,8 @@
 </head>
 <body>
 	<a href="Inicio.jsp">Inicio</a> |
-	<a href="">Agregar Seguros</a> |
-	<a href="ListarSeguro">Listar Seguros</a>
+	<a href="ServletSeguros?addSeguro=1">Agregar Seguros</a> |
+	<a href="ServletListar?listar=1">Listar Seguros</a>
 	<hr>
 	<h3>Agregar Seguro</h3>
 

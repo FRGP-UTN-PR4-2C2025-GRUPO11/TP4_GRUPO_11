@@ -9,7 +9,7 @@
 	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-	<a href="">Inicio</a> |
+	<a href="Inicio.jsp">Inicio</a> |
 	<a href="ServletSeguros?addSeguro=1">Agregar Seguros</a> |
 	<a href="ServletListar?listar=1">Listar Seguros</a>
 	<hr>
