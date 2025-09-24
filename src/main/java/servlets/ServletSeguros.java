@@ -51,6 +51,23 @@ public class ServletSeguros extends HttpServlet {
 			RequestDispatcher requestDispatcher2 = request.getRequestDispatcher("/AgregarSeguros.jsp");
 			requestDispatcher2.forward(request, response);
 		}
+
+		//Agregar Seguro
+		if(request.getParameter("btnSend") != null){
+			Seguro seguro = new Seguro();
+			seguro.setDescripcion(request.getParameter("description"));
+			seguro.setIdTipo(Integer.parseInt(request.getParameter("typeSeguro")));
+			seguro.setCostoContrato(Float.parseFloat(request.getParameter("constoContratacion")));;
+			seguro.setCostoAsegurado(Float.parseFloat(request.getParameter("maxConstoAsegurado")));;
+			
+			DaoSeguro dao = new DaoSeguro();
+		    int filas = dao.agregarSeguro(seguro);
+		    
+		    request.setAttribute("cantFilas", filas);
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/AgregarSeguros.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
