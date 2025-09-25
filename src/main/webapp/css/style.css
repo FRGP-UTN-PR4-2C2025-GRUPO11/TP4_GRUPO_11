@@ -3,4 +3,39 @@
 .content {
 	border: 1px solid black;
 	margin-right: auto;
+	
+	
+}
+.formularioSeguro {
+    max-width: 500px;
+    padding: 10px;
+}
+
+.formulario_field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.formulario_field label {
+    width: 45%;
+    font-weight: bold;
+}
+
+.formulario_field input,
+.formulario_field select,
+.formulario_field span {
+ 
+    width: 50%;
+    padding: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+input[type="submit"] {
+    width: auto;
+    padding: 6px 12px;
+    font-weight: bold;
 }
