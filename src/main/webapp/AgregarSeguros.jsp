@@ -9,8 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 	<a href="Inicio.jsp">Inicio</a> |
@@ -29,14 +28,21 @@
 		listTypes = (ArrayList<TipoSeguro>) request.getAttribute("listTipos"); 
 	}
 	%>
-	<form action="ServletSeguros" method="get">
+	<form action="ServletSeguros" method="get" class="formularioSeguro">
+	
 		<div class="formulario_field">
-			<label>Id Seguro:</label> <label><b><%=daoSeguro.proximoIdSeguro()%></b></label>
+			<label>Id Seguro:</label> 
+			<span><b><%=daoSeguro.proximoIdSeguro()%></b></span>
 		</div>
+		
 		<div class="formulario_field">
-			<label for="description">Descripción:</label> <input type="text"
-				name="description" required />
+			<label for="description">Descripción:</label> 
+			<input type="text" name="description" required />
 		</div>
+		
+		
+		<div class="formulario_field">
+		<label for="typeSeguro">Tipo de Seguro:</label>
 		<select name="typeSeguro" id="typeSeguro">
 			<option value="-1">-- Seleccionar --</option>
 			<%
@@ -51,15 +57,21 @@
 			}
 			%>
 		</select>
-		<div class="formulario_field">
-			<label for="constoContratacion">Consto contratación:</label> <input
-				type="number" name="constoContratacion" required min="1" />
 		</div>
+		
 		<div class="formulario_field">
-			<label for="maxConstoAsegurado">Consto Máximo Asegurado:</label> <input
-				type="number" name="maxConstoAsegurado" required min="1" />
+			<label for="constoContratacion">Consto contratación:</label> 
+			<input type="number" name="constoContratacion" required min="1" step="0.01" />
 		</div>
-		<input type="submit" value="Enviar" name="btnSend" />
+		
+		<div class="formulario_field">
+			<label for="maxConstoAsegurado">Consto Máximo Asegurado:</label>
+			<input type="number" name="maxConstoAsegurado" required min="1" step="0.01" />
+		</div>
+		
+		<div class="formulario_field">
+    		<input type="submit" value="Aceptar" name="btnSend" />
+		</div>
 
 		<br><br>
 		<% 
